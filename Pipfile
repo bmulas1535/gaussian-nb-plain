@@ -9,6 +9,8 @@ verify_ssl = true
 scikit-learn = "*"
 pandas = "*"
 ipykernel = "*"
+matplotlib = "*"
+seaborn = "*"
 
 [requires]
 python_version = "3.8"
