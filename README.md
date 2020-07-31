@@ -6,12 +6,10 @@ The GaussianNB Classifier is designed to predict the class for a given observati
 
 In this way, the probability of observing x given that it came from any of the available classes is calculated, assuming a normal class distribution. The probabilities are compared, and the class with the highest is chosen as the prediction. 
 
-The probability density function calculates the probability of making an observation from any class by finding the z-score distance of x from a given class, using a method derived from the Gaussian distribution equation:
-$$
-p(y) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2}(\frac{x - \mu}{\sigma})^2}
-$$
+The probability density function calculates the probability of making an observation from any class by finding the z-score distance of x from a given class, using a method derived from the Gaussian distribution equation
+<img src="https://latex.codecogs.com/gif.latex?p(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2}(\frac{x - \mu}{\sigma})^2}" />
 
-The class conditional probability is equal to the product of the probability of observing any feature: $ P(Y | X) = P(x_1 | Y) * P(x_2 | Y) * . . . * P(x_n | Y) * P(Y) $
+Like this, we can derive the probabilty of observing a feature `x` if it came from any of the given classes. The class conditional probability is equal to the product of the probability of observing any feature: <img src="https://latex.codecogs.com/gif.latex?P(Y | X) = P(x_1 | Y) \times P(x_2 | Y) \times . . . \times P(x_n | Y) \times P(Y)" />
 
 Now, the denominator of the Bayesian Inference is notably missing. This is due to the fact that after considering the adding the conditional probabilities for all evidence both satisfying and not satisfying our hypothesis, the probabilities sum to 100%, so the denominator is 1.
 
@@ -25,7 +23,7 @@ This is usually not exactly the case in most real world applications, but in pra
 
 ## Usage
 
-The implementation is fairly straightforward. Import the classifier, instantiate it, and fit to your model data. The classifier object takes an $ X $ feature matrix, and a $ y $ target vector as inputs. The expected datatype is an _ndarray_ for $ X $, and _1darray_ for $ y $.
+The implementation is fairly straightforward. Import the classifier, instantiate it, and fit to your model data. The classifier object takes an `X` feature matrix, and a `y` target vector as inputs. The expected datatype is an _ndarray_ for `X`, and _1darray_ for `y`.
 
 ```python
 >>> from nb import NaiveBayes
