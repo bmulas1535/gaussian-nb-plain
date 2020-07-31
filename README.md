@@ -2,14 +2,19 @@
 
 ## Method
 
-The GaussianNB Classifier is designed to predict the class for a given observation as a probability of that observation being made if derived from either class. The class with the highest probability is chosen as the prediction. Probabilty is calculated using Bayesian Probability, wherein the "Prior" is the class occurance as observed in the training data. $$ P(A|B) = \frac{P(B|A) * P(A)}{P(B)} $$
+The GaussianNB Classifier is designed to predict the class for a given observation as a probability of that observation being made if derived from either class. The class with the highest probability is chosen as the prediction. Probabilty is calculated using Bayesian Probability, wherein the "Prior" is the class occurance as observed in the training data.
+
+<img src="https://latex.codecogs.com/gif.latex?P(A|B) = \frac{P(B|A) * P(A)}{P(B)}" />
 
 In this way, the probability of observing x given that it came from any of the available classes is calculated, assuming a normal class distribution. The probabilities are compared, and the class with the highest is chosen as the prediction. 
 
 The probability density function calculates the probability of making an observation from any class by finding the z-score distance of x from a given class, using a method derived from the Gaussian distribution equation
+
 <img src="https://latex.codecogs.com/gif.latex?p(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2}(\frac{x - \mu}{\sigma})^2}" />
 
-Like this, we can derive the probabilty of observing a feature `x` if it came from any of the given classes. The class conditional probability is equal to the product of the probability of observing any feature: <img src="https://latex.codecogs.com/gif.latex?P(Y | X) = P(x_1 | Y) \times P(x_2 | Y) \times . . . \times P(x_n | Y) \times P(Y)" />
+Like this, we can derive the probabilty of observing a feature `x` if it came from any of the given classes. The class conditional probability is equal to the product of the probability of observing any feature: 
+
+<img src="https://latex.codecogs.com/gif.latex?P(Y | X) = P(x_1 | Y) \times P(x_2 | Y) \times . . . \times P(x_n | Y) \times P(Y)" />
 
 Now, the denominator of the Bayesian Inference is notably missing. This is due to the fact that after considering the adding the conditional probabilities for all evidence both satisfying and not satisfying our hypothesis, the probabilities sum to 100%, so the denominator is 1.
 
